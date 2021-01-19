@@ -123,3 +123,11 @@
 /**/
 #admin_root #admin_content #root_ajouter {
 }
+#admin_root #admin_content #root_ajouter #btn_add{
+    -fx-text-fill: white;
+    -fx-background-color: #272643;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
