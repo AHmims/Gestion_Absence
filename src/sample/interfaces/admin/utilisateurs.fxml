@@ -38,7 +38,12 @@
                               <HBox alignment="CENTER_LEFT" spacing="10.0">
                                  <children>
                                     <Label minWidth="-Infinity" styleClass="card_txt" text="Password :" />
-                                    <PasswordField styleClass="card_pass" text="sss" />
+                                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <PasswordField styleClass="card_pass" text="sss" />
+                                          <Button mnemonicParsing="false" prefWidth="50.0" text="show" />
+                                       </children>
+                                    </HBox>
                                  </children>
                               </HBox>
                                    </children>
