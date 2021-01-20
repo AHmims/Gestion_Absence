@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Authentification {
+public class Authentification{
     @FXML
     Pane root;
     @FXML
