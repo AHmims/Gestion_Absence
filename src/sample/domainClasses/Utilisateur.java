@@ -69,5 +69,5 @@ abstract class Utilisateur {
     }
     //
     //
-    abstract int getRole();
+    public abstract int getRole();
 }

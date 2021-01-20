@@ -53,7 +53,7 @@ public class Administrateur extends Utilisateur {
 
     //
     @Override
-    int getRole() {
+    public int getRole() {
         return this.nivDroit;
     }
 }

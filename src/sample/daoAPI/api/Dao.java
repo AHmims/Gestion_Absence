@@ -1,11 +1,13 @@
 package sample.daoAPI.api;
 
+import sample.domainClasses.Administrateur;
+
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
 public interface Dao<T> {
-    Optional<T> get(String id);
+    Administrateur get(String id);
 
     Optional<T> get(Calendar id);
 

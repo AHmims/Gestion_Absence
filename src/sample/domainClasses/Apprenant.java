@@ -81,7 +81,7 @@ public class Apprenant extends Utilisateur {
     }
 
     @Override
-    int getRole() {
+    public int getRole() {
         return this.nivDroit;
     }
 }
