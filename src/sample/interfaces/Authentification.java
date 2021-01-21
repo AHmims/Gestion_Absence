@@ -54,7 +54,7 @@ public class Authentification {
                                 scene_name = "";
                                 break;
                             case "Formateur":
-                                scene_name = "";
+                                scene_name = "formateur";
                                 break;
                             case "Apprenant":
                                 scene_name = "";
