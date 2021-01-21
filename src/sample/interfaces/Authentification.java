@@ -32,7 +32,29 @@ public class Authentification{
         Administrateur administrateur = administrateurDao.get("AZERTY");
         //DAO FOR LOGIN !?
         System.out.println(administrateur.getRole()); */
-        switchScene();
+        try{
+            final String nom = input_email.getText();
+            final String prenom = input_pass.getText();
+            //
+            if(!nom.equals("") && !prenom.equals("")){
+                Utilisateur user = Dao.login(nom, prenom);
+                if(user != null){
+                    switch (user.getClass().getSimpleName()){
+                        case "Administrateur":break;
+                        case "Secretaire":break;
+                        case "Formateur":break;
+                        case "Apprenant":break;
+                    }
+                    switchScene();
+                }else{
+                    System.out.println("User not found");
+                }
+            }else{
+                System.out.println("Inputs can't be empty");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     //Method called when user authenticates successfully
     private void switchScene() {

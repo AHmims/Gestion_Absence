@@ -22,6 +22,13 @@ public abstract class Utilisateur {
         this.nivDroit = nivDroit;
     }
 
+    public Utilisateur(String cin, String nom, String prenom, int nivDroit) {
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.nivDroit = nivDroit;
+    }
+
     public String getCin() {
         return cin;
     }
