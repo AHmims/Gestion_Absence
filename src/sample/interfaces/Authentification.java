@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import sample.daoAPI.api.Dao;
 import sample.domainClasses.Administrateur;
 import sample.domainClasses.Utilisateur;
+import sample.helpers.Session;
 
 import java.io.IOException;
 

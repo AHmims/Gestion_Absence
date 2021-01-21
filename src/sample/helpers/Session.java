@@ -8,7 +8,7 @@ public class Session {
     public static String prenom;
     public static int nivDroit;
     //
-    public Session(Utilisateur user){
+    public static void setSession(Utilisateur user){
         cin = user.getCin();
         nom = user.getNom();
         prenom = user.getPrenom();
