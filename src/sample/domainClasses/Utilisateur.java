@@ -2,22 +2,24 @@ package sample.domainClasses;
 
 import java.util.Calendar;
 
-abstract class Utilisateur {
+public abstract class Utilisateur {
     private String cin;
     private String nom;
     private String prenom;
     private Calendar dateNaissance;
     private String user;
     private String password;
+    private int nivDroit;
     //
 
-    public Utilisateur(String cin, String nom, String prenom, Calendar dateNaissance, String user, String password) {
+    public Utilisateur(String cin, String nom, String prenom, Calendar dateNaissance, String user, String password, int nivDroit) {
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.user = user;
         this.password = password;
+        this.nivDroit = nivDroit;
     }
 
     public String getCin() {
@@ -67,7 +69,14 @@ abstract class Utilisateur {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getNivDroit() {
+        return nivDroit;
+    }
+
+    public void setNivDroit(int nivDroit) {
+        this.nivDroit = nivDroit;
+    }
+
     //
-    //
-    public abstract int getRole();
 }

@@ -1,6 +1,7 @@
 package sample.daoAPI.api;
 
 import sample.domainClasses.Administrateur;
+import sample.domainClasses.Utilisateur;
 
 import java.util.Calendar;
 import java.util.List;
@@ -18,4 +19,8 @@ public interface Dao<T> {
     void update(T t);
 
     void delete(T t);
+
+    default Utilisateur login(){
+        return null;
+    }
 }

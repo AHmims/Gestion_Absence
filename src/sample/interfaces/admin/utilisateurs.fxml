@@ -13,7 +13,7 @@
            <content>
                <VBox fx:id="skills_container" prefWidth="680.0" spacing="10.0" style="-fx-background-color: white;">
                    <children>
-                       <HBox alignment="BOTTOM_LEFT" prefWidth="200.0" spacing="10.0">
+                       <HBox prefWidth="200.0" spacing="10.0">
                            <children>
                                <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="250.0" spacing="5.0" styleClass="user_card" HBox.hgrow="NEVER">
                                    <children>
@@ -33,17 +33,6 @@
                                  <children>
                                     <Label styleClass="card_txt" text="Username :" />
                                     <Label layoutX="10.0" layoutY="10.0" styleClass="card_txt" text="Username" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                 <children>
-                                    <Label minWidth="-Infinity" styleClass="card_txt" text="Password :" />
-                                    <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                       <children>
-                                          <PasswordField styleClass="card_pass" text="sss" />
-                                          <Button mnemonicParsing="false" prefWidth="50.0" text="show" />
-                                       </children>
-                                    </HBox>
                                  </children>
                               </HBox>
                                    </children>

@@ -6,15 +6,13 @@ public class Administrateur extends Utilisateur {
     private String matricule;
     private Calendar dateEmbauche;
     private String service;
-    private int nivDroit;
     //
 
-    public Administrateur(String cin, String nom, String prenom, Calendar dateNaissance, String user, String password, String matricule, Calendar dateEmbauche, String service, int nivDroit) {
-        super(cin, nom, prenom, dateNaissance, user, password);
+    public Administrateur(String cin, String nom, String prenom, Calendar dateNaissance, String user, String password, int nivDroit, String matricule, Calendar dateEmbauche, String service) {
+        super(cin, nom, prenom, dateNaissance, user, password, nivDroit);
         this.matricule = matricule;
         this.dateEmbauche = dateEmbauche;
         this.service = service;
-        this.nivDroit = nivDroit;
     }
     //
 
@@ -43,17 +41,5 @@ public class Administrateur extends Utilisateur {
         this.service = service;
     }
 
-    public int getNivDroit() {
-        return nivDroit;
-    }
-
-    public void setNivDroit(int nivDroit) {
-        this.nivDroit = nivDroit;
-    }
-
     //
-    @Override
-    public int getRole() {
-        return this.nivDroit;
-    }
 }

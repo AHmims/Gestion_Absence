@@ -10,7 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import sample.daoAPI.AdministrateurDao;
 import sample.daoAPI.api.Dao;
-import sample.domainClasses.Administrateur;
+import sample.domainClasses.*;
 
 import java.io.IOException;
 
@@ -28,11 +28,11 @@ public class Authentification{
     //
     @FXML
     public void login(){
-        administrateurDao = new AdministrateurDao();
+        /*administrateurDao = new AdministrateurDao();
         Administrateur administrateur = administrateurDao.get("AZERTY");
         //DAO FOR LOGIN !?
-        System.out.println(administrateur.getRole());
-        //switchScene();
+        System.out.println(administrateur.getRole()); */
+        switchScene();
     }
     //Method called when user authenticates successfully
     private void switchScene() {
