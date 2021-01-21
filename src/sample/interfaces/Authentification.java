@@ -8,13 +8,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import sample.daoAPI.AdministrateurDao;
 import sample.daoAPI.api.Dao;
-import sample.domainClasses.*;
+import sample.domainClasses.Administrateur;
+import sample.domainClasses.Utilisateur;
 
 import java.io.IOException;
 
-public class Authentification{
+public class Authentification {
     private Dao<Administrateur> administrateurDao;
     //
     @FXML
@@ -25,41 +25,53 @@ public class Authentification{
     PasswordField input_pass;
     @FXML
     Button btn_login;
+
     //
     @FXML
-    public void login(){
-        /*administrateurDao = new AdministrateurDao();
-        Administrateur administrateur = administrateurDao.get("AZERTY");
-        //DAO FOR LOGIN !?
-        System.out.println(administrateur.getRole()); */
-        try{
+    public void login() {
+        try {
             final String nom = input_email.getText();
             final String prenom = input_pass.getText();
             //
-            if(!nom.equals("") && !prenom.equals("")){
+            if (!nom.equals("") && !prenom.equals("")) {
                 Utilisateur user = Dao.login(nom, prenom);
-                if(user != null){
-                    switch (user.getClass().getSimpleName()){
-                        case "Administrateur":break;
-                        case "Secretaire":break;
-                        case "Formateur":break;
-                        case "Apprenant":break;
+                if (user != null) {
+                    String scene_name = "";
+                    switch (user.getClass().getSimpleName()) {
+                        case "Administrateur":
+                            scene_name = "admin";
+                            break;
+                        case "Secretaire":
+                            scene_name = "";
+                            break;
+                        case "Formateur":
+                            scene_name = "";
+                            break;
+                        case "Apprenant":
+                            scene_name = "";
+                            break;
+                        default:
+                            System.out.println("Class unknown");
                     }
-                    switchScene();
-                }else{
+                    //
+                    if (!scene_name.equals("")) {
+                        switchScene(scene_name);
+                    }
+                } else {
                     System.out.println("User not found");
                 }
-            }else{
+            } else {
                 System.out.println("Inputs can't be empty");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     //Method called when user authenticates successfully
-    private void switchScene() {
+    private void switchScene(String scene_name) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(String.format("%s.fxml", scene_name)));
             Stage stage = (Stage) root.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
