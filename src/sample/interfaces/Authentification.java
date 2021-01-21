@@ -37,6 +37,9 @@ public class Authentification {
             if (!nom.equals("") && !prenom.equals("")) {
                 Utilisateur user = Dao.login(nom, prenom);
                 if (user != null) {
+                    // CREATE A USER INSTANCE
+                    Session.setSession(user);
+                    // UPDATE scene_name FOR OTHERINTERFACES WHEN MADE
                     String scene_name = "";
                     switch (user.getClass().getSimpleName()) {
                         case "Administrateur":
