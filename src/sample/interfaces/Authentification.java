@@ -1,5 +1,6 @@
 package sample.interfaces;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -30,46 +31,51 @@ public class Authentification {
     //
     @FXML
     public void login() {
-        try {
-            final String nom = input_email.getText();
-            final String prenom = input_pass.getText();
-            //
-            if (!nom.equals("") && !prenom.equals("")) {
-                Utilisateur user = Dao.login(nom, prenom);
-                if (user != null) {
-                    // CREATE A USER INSTANCE
-                    Session.setSession(user);
-                    // UPDATE scene_name FOR OTHERINTERFACES WHEN MADE
-                    String scene_name = "";
-                    switch (user.getClass().getSimpleName()) {
-                        case "Administrateur":
-                            scene_name = "admin";
-                            break;
-                        case "Secretaire":
-                            scene_name = "";
-                            break;
-                        case "Formateur":
-                            scene_name = "";
-                            break;
-                        case "Apprenant":
-                            scene_name = "";
-                            break;
-                        default:
-                            System.out.println("Class unknown");
-                    }
-                    //
-                    if (!scene_name.equals("")) {
-                        switchScene(scene_name);
+        /* Toast t = new Toast(root);
+        t.normal("qlj qjs iqjs hqj kqjhkjhk hkjh"); */
+
+        new Thread(() -> {
+            try {
+                final String nom = input_email.getText();
+                final String prenom = input_pass.getText();
+                //
+                if (!nom.equals("") && !prenom.equals("")) {
+                    Utilisateur user = Dao.login(nom, prenom);
+                    if (user != null) {
+                        // CREATE A USER INSTANCE
+                        Session.setSession(user);
+                        // UPDATE scene_name FOR OTHERINTERFACES WHEN MADE
+                        String scene_name = "";
+                        switch (user.getClass().getSimpleName()) {
+                            case "Administrateur":
+                                scene_name = "admin";
+                                break;
+                            case "Secretaire":
+                                scene_name = "";
+                                break;
+                            case "Formateur":
+                                scene_name = "";
+                                break;
+                            case "Apprenant":
+                                scene_name = "";
+                                break;
+                            default:
+                                System.out.println("Class unknown");
+                        }
+                        //
+                        if (!scene_name.equals("")) {
+                            switchScene(scene_name);
+                        }
+                    } else {
+                        System.out.println("User not found");
                     }
                 } else {
-                    System.out.println("User not found");
+                    System.out.println("Inputs can't be empty");
                 }
-            } else {
-                System.out.println("Inputs can't be empty");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        }).start();
     }
 
     //Method called when user authenticates successfully
@@ -78,7 +84,7 @@ public class Authentification {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(String.format("%s.fxml", scene_name)));
             Stage stage = (Stage) root.getScene().getWindow();
             Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
+            Platform.runLater(() -> stage.setScene(scene));
         } catch (IOException e) {
             e.printStackTrace();
         }
