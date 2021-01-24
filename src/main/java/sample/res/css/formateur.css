@@ -189,3 +189,20 @@
     -fx-background-color: #F9FEFD;
     -fx-border-color: #51B6AB;
 }
+#formateur_root #root_gestion_absense #btn_add{
+    -fx-text-fill: white;
+    -fx-background-color: #272643;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-cursor: hand;
+}
+#formateur_root #root_gestion_absense #abs_duration{
+    -fx-text-fill: #64748B;
+    -fx-border-color: #bec4cc;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-background-insets: none;
+    -fx-background-color: white;
+}

@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<VBox fx:id="root_gestion_absense" alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="680.0" spacing="25.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.interfaces.formateur.GestionAbsense">
+<VBox fx:id="root_gestion_absense" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="680.0" spacing="10.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.interfaces.formateur.GestionAbsense">
    <children>
       <Label styleClass="content_title" text="Ajout des absenses et des retards" />
-      <VBox spacing="5.0">
+      <VBox alignment="TOP_RIGHT" spacing="3.0">
          <children>
-            <VBox spacing="15.0">
+            <VBox spacing="10.0">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
@@ -23,7 +23,7 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <ScrollPane fx:id="list_apprenant" prefHeight="100.0" prefWidth="680.0" vbarPolicy="NEVER">
+                  <ScrollPane fx:id="list_apprenant" minHeight="-Infinity" prefHeight="100.0" prefWidth="680.0" vbarPolicy="NEVER" VBox.vgrow="NEVER">
                      <content>
                         <HBox spacing="10.0">
                            <children>
@@ -60,14 +60,14 @@
                   </ScrollPane>
                </children>
             </VBox>
-            <VBox layoutX="10.0" layoutY="10.0" spacing="15.0">
+            <VBox layoutX="10.0" layoutY="10.0" spacing="10.0">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
                         <Label styleClass="content_subtitle" text="Liste des seances :" />
                      </children>
                   </HBox>
-                  <ScrollPane fx:id="list_seance" prefHeight="90.0" prefWidth="680.0" vbarPolicy="NEVER">
+                  <ScrollPane fx:id="list_seance" minHeight="-Infinity" prefHeight="90.0" prefWidth="680.0" vbarPolicy="NEVER" VBox.vgrow="NEVER">
                      <content>
                         <HBox spacing="10.0">
                            <children>
@@ -137,23 +137,40 @@
                   </ScrollPane>
                </children>
             </VBox>
-            <VBox>
+            <VBox spacing="15.0">
                <children>
                   <Label styleClass="content_subtitle" text="Formulaire :" />
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <HBox prefWidth="200.0" VBox.vgrow="NEVER">
+                        <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0" VBox.vgrow="NEVER">
                            <children>
-                              <Label text="Label" />
-                              <DatePicker />
+                              <Label text="Date :" />
+                              <DatePicker fx:id="abs_date" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="NEVER">
+                           <children>
+                              <Label text="Type :" />
+                              <RadioButton fx:id="abs_opt1" mnemonicParsing="false" selected="true" text="Absense">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="abs_type" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="abs_opt2" layoutX="69.0" layoutY="10.0" mnemonicParsing="false" text="Retard" toggleGroup="$abs_type" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="45.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label text="Durée :" />
+                              <TextField fx:id="abs_duration" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                </children>
             </VBox>
+            <Button fx:id="btn_add" mnemonicParsing="false" text="Button" />
          </children>
       </VBox>
-      <Button mnemonicParsing="false" text="Button" />
    </children>
 </VBox>
