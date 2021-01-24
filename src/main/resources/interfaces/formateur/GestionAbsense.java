@@ -3,6 +3,7 @@ package interfaces.formateur;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -25,11 +26,32 @@ public class GestionAbsense implements Initializable {
     //
     @FXML
     HBox cont_apprenants;
+    @FXML
+    TextField srch_apprenant;
 
     //
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         displayLearners();
+    }
+
+    @FXML
+    public void search() {
+        String query = srch_apprenant.getText().toLowerCase();
+        //
+        for (int i = 0; i < list_apprenants.size(); i++) {
+            Apprenant apprenant = list_apprenants.get(i);
+            //
+            boolean exists = false;
+            //
+            if (apprenant.getNom().toLowerCase().contains(query) || apprenant.getPrenom().toLowerCase().contains(query) || apprenant.getCne().toLowerCase().contains(query) || apprenant.getGroupe().toLowerCase().equals(query) || (apprenant.getNiveau() + "").equals(query)) {
+                exists = true;
+            }
+            //
+            components_apprenants.get(i).setVisible(exists);
+            components_apprenants.get(i).setManaged(exists);
+        }
+
     }
 
     //
@@ -79,14 +101,16 @@ public class GestionAbsense implements Initializable {
             if (container.getStyleClass().contains("apprenant_card_active")) {
                 selected_apprenants.remove(container);
                 container.getStyleClass().remove("apprenant_card_active");
-            }
-            else {
+            } else {
                 container.getStyleClass().add("apprenant_card_active");
                 selected_apprenants.add(container);
             }
         });
         //
+        //container.managedProperty().bind(container.visibleProperty());
         components_apprenants.add(container);
         return container;
     }
+
+
 }

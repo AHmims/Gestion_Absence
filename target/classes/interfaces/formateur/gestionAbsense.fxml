@@ -18,7 +18,7 @@
                         <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
                            <children>
                               <Label text="Nom d'apprenant :" />
-                              <TextField fx:id="srch_apprenant" prefHeight="25.0" prefWidth="100.0" promptText="Search..." styleClass="srch_input" />
+                              <TextField fx:id="srch_apprenant" onKeyReleased="#search" prefHeight="25.0" prefWidth="100.0" promptText="Search..." styleClass="srch_input" />
                            </children>
                         </HBox>
                      </children>
