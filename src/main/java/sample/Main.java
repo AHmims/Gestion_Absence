@@ -7,14 +7,16 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("interfaces/authentification.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("interfaces/authentification.fxml")));
         primaryStage.setTitle("Youcode absence");
         primaryStage.setScene(new Scene(root));
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("res/img/favicon.png")));
+        primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("res/img/favicon.png"))));
         //primaryStage.setResizable(false);
         primaryStage.show();
     }

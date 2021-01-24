@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<VBox fx:id="root_gestion_absense" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="680.0" spacing="10.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.interfaces.formateur.GestionAbsense">
+<VBox fx:id="root_gestion_absense" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="680.0" spacing="10.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.formateur.GestionAbsense">
    <children>
       <Label styleClass="content_title" text="Ajout des absenses et des retards" />
       <VBox alignment="TOP_RIGHT" spacing="3.0">

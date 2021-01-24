@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:id="admin_root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" spacing="15.0" stylesheets="@../res/css/admin.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.interfaces.Admin">
+<HBox fx:id="admin_root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" spacing="15.0" stylesheets="@../res/css/admin.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.Admin">
    <children>
       <GridPane fx:id="navBar" alignment="CENTER" prefWidth="80.0" HBox.hgrow="NEVER" VBox.vgrow="ALWAYS">
          <columnConstraints>

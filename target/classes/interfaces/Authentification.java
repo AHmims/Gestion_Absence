@@ -1,4 +1,4 @@
-package sample.interfaces;
+package interfaces;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
