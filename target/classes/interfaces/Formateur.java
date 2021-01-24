@@ -11,6 +11,7 @@ import sample.helpers.Session;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Formateur implements Initializable {
@@ -42,5 +43,4 @@ public class Formateur implements Initializable {
             e.printStackTrace();
         }
     }
-
 }

@@ -37,16 +37,13 @@ public class ApprenantDao implements Dao<Apprenant> {
             PreparedStatement statement = con.prepareStatement("SELECT a.*, u.nom, u.prenom FROM `Utilisateur` AS u, `Utilisateur` AS u2, Apprenant AS a WHERE u2.cin = ? AND u2.nom = a.nomTuteur AND u2.prenom = a.prenomTuteur AND u.cin = a.cin");
             statement.setString(1, cin_formateur);
             ResultSet res = statement.executeQuery();
-            if (!res.next()) {
-                con.close();
-                return null;
-            } else {
-                ArrayList<Apprenant> list_apprenants = new ArrayList<>();
-                while (res.next()) {
-                    list_apprenants.add(new Apprenant(res.getString("cin"), res.getString("nom"), res.getString("prenom"), res.getString("cne"), res.getString("promotion"), res.getString("nomTuteur"), res.getString("prenomTuteur"), res.getInt("niveau"), res.getString("groupe")));
-                }
-                return list_apprenants;
+
+            ArrayList<Apprenant> list_apprenants = new ArrayList<>();
+            while (res.next()) {
+                list_apprenants.add(new Apprenant(res.getString("cin"), res.getString("nom"), res.getString("prenom"), res.getString("cne"), res.getString("promotion"), res.getString("nomTuteur"), res.getString("prenomTuteur"), res.getInt("niveau"), res.getString("groupe")));
             }
+
+            return list_apprenants;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
