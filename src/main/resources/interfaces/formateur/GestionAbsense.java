@@ -11,6 +11,7 @@ import javafx.scene.shape.Circle;
 import sample.daoAPI.AdministrateurDao;
 import sample.daoAPI.ApprenantDao;
 import sample.domainClasses.Apprenant;
+import sample.domainClasses.Seance;
 import sample.helpers.Session;
 
 import java.net.URL;
@@ -21,14 +22,18 @@ import java.util.concurrent.ExecutionException;
 public class GestionAbsense implements Initializable {
     private ArrayList<Apprenant> list_apprenants = new ArrayList<>();
     private ArrayList<Pane> components_apprenants = new ArrayList<>();
-    //
     private ArrayList<Pane> selected_apprenants = new ArrayList<>();
+    //
+    private ArrayList<Seance> list_seances = new ArrayList<>();
+    private ArrayList<Pane> components_seances = new ArrayList<>();
+    private int selected_seance = -1;
     //
     @FXML
     HBox cont_apprenants;
     @FXML
     TextField srch_apprenant;
-
+    @FXML
+    HBox cont_seances;
     //
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -112,5 +117,15 @@ public class GestionAbsense implements Initializable {
         return container;
     }
 
+    private void displayClasses() {
+        try {
+            list_seances.clear();
+            components_seances.clear();
+            cont_seances.getChildren().clear();
+            //
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
