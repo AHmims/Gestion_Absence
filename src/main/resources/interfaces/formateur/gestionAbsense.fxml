@@ -25,7 +25,7 @@
                   </HBox>
                   <ScrollPane fx:id="list_apprenant" minHeight="-Infinity" prefHeight="100.0" prefWidth="680.0" vbarPolicy="NEVER" VBox.vgrow="NEVER">
                      <content>
-                        <HBox spacing="10.0">
+                        <HBox fx:id="cont_apprenants" spacing="10.0">
                            <children>
                               <Pane prefHeight="80.0" prefWidth="200.0" styleClass="apprenant_card">
                                  <children>

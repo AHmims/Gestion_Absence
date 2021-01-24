@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
@@ -25,7 +26,7 @@ public class AdministrateurDao implements Dao<Administrateur> {
     }
 
     @Override
-    public List<Administrateur> getAll() {
+    public ArrayList<Administrateur> getAll() {
         return null;
     }
 

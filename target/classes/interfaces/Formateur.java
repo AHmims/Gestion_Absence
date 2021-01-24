@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import sample.helpers.Session;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,16 +17,22 @@ public class Formateur implements Initializable {
     @FXML
     HBox formateur_root;
     @FXML
+    Text nomUser;
+    @FXML
     Pane formateur_content;
+
     //
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        nomUser.setText(Session.nom.toUpperCase().substring(0, 1) + Session.prenom.toUpperCase().substring(0, 1));
         switchCntent("gestionAbsense");
     }
+
     @FXML
-    public void afficherForm(){
+    public void afficherForm() {
         switchCntent("gestionAbsense");
     }
+
     //
     private void switchCntent(String filename) {
         try {

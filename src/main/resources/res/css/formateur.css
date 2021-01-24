@@ -96,6 +96,8 @@
     -fx-stroke: #E2E8F0;
     -fx-fill: white;
     -fx-stroke-width: 2;
+    -fx-translate-x: 174;
+    -fx-translate-y: 16;
 }
 
 #formateur_root #root_gestion_absense #list_apprenant .apprenant_card .inner_cont {
