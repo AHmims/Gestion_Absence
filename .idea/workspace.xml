@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="988bbd07-e27d-40ad-b07e-3d1ebc212dfa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/daoAPI/AbsenceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/daoAPI/AbsenceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/daoAPI/SeanceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/daoAPI/SeanceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/interfaces/formateur/GestionAbsense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/interfaces/formateur/GestionAbsense.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/interfaces/formateur/GestionAbsense.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/interfaces/formateur/GestionAbsense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +80,7 @@
       <updated>1611512140283</updated>
       <workItem from="1611512148024" duration="11793000" />
       <workItem from="1611526143219" duration="1555000" />
-      <workItem from="1611563997031" duration="9250000" />
+      <workItem from="1611563997031" duration="9503000" />
     </task>
     <servers />
   </component>
