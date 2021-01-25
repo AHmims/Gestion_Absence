@@ -7,9 +7,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import sample.daoAPI.AbsenceDao;
 import sample.daoAPI.AdministrateurDao;
 import sample.daoAPI.ApprenantDao;
 import sample.daoAPI.SeanceDao;
+import sample.domainClasses.Absence;
 import sample.domainClasses.Apprenant;
 import sample.domainClasses.Seance;
 import sample.helpers.Session;
@@ -17,6 +19,7 @@ import sample.helpers.Session;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
@@ -36,9 +39,9 @@ public class GestionAbsense implements Initializable {
     @FXML
     HBox cont_seances;
     @FXML
-    DatePicker abs_date;
-    @FXML
     ToggleGroup abs_type;
+    @FXML
+    RadioButton abs_opt1;
     @FXML
     TextField abs_duration;
 
@@ -47,6 +50,15 @@ public class GestionAbsense implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         displayLearners();
         displayClasses();
+    }
+
+    @FXML
+    public void radio_selected() {
+        if (abs_type.getSelectedToggle().equals(abs_opt1)) {
+            abs_duration.setDisable(true);
+        } else {
+            abs_duration.setDisable(false);
+        }
     }
 
     @FXML
@@ -67,19 +79,43 @@ public class GestionAbsense implements Initializable {
         }
 
     }
+
     @FXML
-    public void add(){
-        System.out.println(abs_date.getValue()!=null);
-        /*try{
-            if(selected_apprenants.size()==0)
+    public void add() {
+        try {
+            if (selected_apprenants.size() == 0)
                 throw new Exception("1");
-            if(selected_seance == null)
+            if (selected_seance == null)
                 throw new Exception("2");
-            if(abs_date.getValue()!=null)
-        }catch(Exception e){
+            if (abs_duration.getText().equals(""))
+                throw new Exception("3");
+            //
+            for (Pane comp_apprenant : selected_apprenants) {
+                int pos_apprenant = Integer.parseInt(comp_apprenant.getProperties().get("index_app").toString());
+                Apprenant apprenant = list_apprenants.get(pos_apprenant);
+                int pos_seance = Integer.parseInt(selected_seance.getProperties().get("index_app").toString());
+                Seance seance = list_seances.get(pos_seance);
+                //
+                Calendar h_abs = Calendar.getInstance();
+                Double retard = -1.0;
+                Double absence = -1.0;
+                //
+                if (abs_type.getSelectedToggle().equals(abs_opt1))
+                    absence = 0.0;
+                else
+                    retard = Double.parseDouble(abs_duration.getText());
+                //
+                AbsenceDao absenceDao = new AbsenceDao();
+                boolean insert_res = absenceDao.save(new Absence(h_abs, apprenant.getCin(), seance.getDateSeance(), false, retard, absence));
+                if (!insert_res)
+                    System.out.println("Not saved");
+                else System.out.println("Saved");
+            }
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        } */
+        }
     }
+
     //
     private void displayLearners() {
         try {
@@ -122,6 +158,7 @@ public class GestionAbsense implements Initializable {
         indicator.getStyleClass().add("indicator");
         //
         container.getChildren().addAll(cont_data, indicator);
+        container.getProperties().put("index_app", components_apprenants.size());
         //
         container.setOnMouseClicked(e -> {
             if (container.getStyleClass().contains("apprenant_card_active")) {
@@ -181,6 +218,7 @@ public class GestionAbsense implements Initializable {
         indicator.getStyleClass().add("indicator");
         //
         container.getChildren().addAll(cont_data, indicator);
+        container.getProperties().put("index_app", components_seances.size());
         //
         container.setOnMouseClicked(e -> {
             if (container.getStyleClass().contains("seance_card_active")) {

@@ -142,27 +142,21 @@
                   <Label styleClass="content_subtitle" text="Formulaire :" />
                   <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0" VBox.vgrow="NEVER">
-                           <children>
-                              <Label text="Date :" />
-                              <DatePicker fx:id="abs_date" />
-                           </children>
-                        </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="NEVER">
                            <children>
                               <Label text="Type :" />
-                              <RadioButton fx:id="abs_opt1" mnemonicParsing="false" selected="true" text="Absense">
+                              <RadioButton fx:id="abs_opt1" mnemonicParsing="false" onAction="#radio_selected" selected="true" text="Absense">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="abs_type" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="abs_opt2" layoutX="69.0" layoutY="10.0" mnemonicParsing="false" text="Retard" toggleGroup="$abs_type" />
+                              <RadioButton fx:id="abs_opt2" layoutX="69.0" layoutY="10.0" mnemonicParsing="false" onAction="#radio_selected" text="Retard" toggleGroup="$abs_type" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="45.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label text="Durée :" />
-                              <TextField fx:id="abs_duration" />
+                              <TextField fx:id="abs_duration" disable="true" />
                            </children>
                         </HBox>
                      </children>
