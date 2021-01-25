@@ -169,7 +169,7 @@
                   </VBox>
                </children>
             </VBox>
-            <Button fx:id="btn_add" mnemonicParsing="false" text="Button" />
+            <Button fx:id="btn_add" mnemonicParsing="false" onAction="#add" text="Button" />
          </children>
       </VBox>
    </children>

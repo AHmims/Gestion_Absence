@@ -50,9 +50,9 @@ public interface Dao<T> {
 
     ArrayList<T> getAll();
 
-    void save(T t);
+    boolean save(T t);
 
-    void update(T t);
+    boolean update(T t);
 
-    void delete(T t);
+    boolean delete(T t);
 }

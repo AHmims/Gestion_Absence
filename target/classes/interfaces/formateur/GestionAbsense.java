@@ -2,8 +2,7 @@ package interfaces.formateur;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -28,7 +27,7 @@ public class GestionAbsense implements Initializable {
     //
     private ArrayList<Seance> list_seances = new ArrayList<>();
     private ArrayList<Pane> components_seances = new ArrayList<>();
-    private Pane selected_seance;
+    private Pane selected_seance = null;
     //
     @FXML
     HBox cont_apprenants;
@@ -36,6 +35,12 @@ public class GestionAbsense implements Initializable {
     TextField srch_apprenant;
     @FXML
     HBox cont_seances;
+    @FXML
+    DatePicker abs_date;
+    @FXML
+    ToggleGroup abs_type;
+    @FXML
+    TextField abs_duration;
 
     //
     @Override
@@ -62,7 +67,19 @@ public class GestionAbsense implements Initializable {
         }
 
     }
-
+    @FXML
+    public void add(){
+        System.out.println(abs_date.getValue()!=null);
+        /*try{
+            if(selected_apprenants.size()==0)
+                throw new Exception("1");
+            if(selected_seance == null)
+                throw new Exception("2");
+            if(abs_date.getValue()!=null)
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        } */
+    }
     //
     private void displayLearners() {
         try {
@@ -149,7 +166,7 @@ public class GestionAbsense implements Initializable {
         VBox cont_data = new VBox();
         cont_data.getStyleClass().add("inner_cont");
         //
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm yyyy/mm/dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/mm/yyyy");
         SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
         Label dateS = new Label(sdf.format(seance.getDateSeance().getTime()));
         dateS.getStyleClass().add("dateS");

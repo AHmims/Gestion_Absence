@@ -56,17 +56,36 @@ public class SeanceDao implements Dao<Seance> {
     }
 
     @Override
-    public void save(Seance seance) {
-
+    public boolean save(Seance seance) {
+        try {
+            Connection con = Connexion.db_connect();
+            if (con == null)
+                throw new Exception("Connection error");
+            //
+            PreparedStatement statement = con.prepareStatement("INSERT INTO `Seance`(`dateSeance`, `matricule`, `groupe`, `heureDebut`, `heureFin`) VALUES (?, ?, ?, ?, ?)");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH-mm-ss");
+            statement.setString(1, sdf.format(seance.getDateSeance().getTime()));
+            statement.setString(2, seance.getMatricule());
+            statement.setString(3, seance.getGroupe());
+            statement.setString(4, sdf.format(seance.getHeureDebut().getTime()));
+            statement.setString(5, sdf.format(seance.getHeureFin().getTime()));
+            //
+            boolean res = statement.executeUpdate() >= 1;
+            con.close();
+            return res;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
-    public void update(Seance seance) {
-
+    public boolean update(Seance seance) {
+        return false;
     }
 
     @Override
-    public void delete(Seance seance) {
-
+    public boolean delete(Seance seance) {
+        return false;
     }
 }

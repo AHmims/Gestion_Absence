@@ -31,17 +31,17 @@ public class AdministrateurDao implements Dao<Administrateur> {
     }
 
     @Override
-    public void save(Administrateur administrateur) {
-
+    public boolean save(Administrateur administrateur) {
+        return false;
     }
 
     @Override
-    public void update(Administrateur administrateur) {
-
+    public boolean update(Administrateur administrateur) {
+        return false;
     }
 
     @Override
-    public void delete(Administrateur administrateur) {
-
+    public boolean delete(Administrateur administrateur) {
+        return false;
     }
 }

@@ -51,17 +51,17 @@ public class ApprenantDao implements Dao<Apprenant> {
     }
 
     @Override
-    public void save(Apprenant apprenant) {
-
+    public boolean save(Apprenant apprenant) {
+        return false;
     }
 
     @Override
-    public void update(Apprenant apprenant) {
-
+    public boolean update(Apprenant apprenant) {
+        return false;
     }
 
     @Override
-    public void delete(Apprenant apprenant) {
-
+    public boolean delete(Apprenant apprenant) {
+        return false;
     }
 }
