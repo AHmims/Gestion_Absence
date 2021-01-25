@@ -10,10 +10,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import sample.daoAPI.AdministrateurDao;
 import sample.daoAPI.ApprenantDao;
+import sample.daoAPI.SeanceDao;
 import sample.domainClasses.Apprenant;
+import sample.domainClasses.Seance;
 import sample.helpers.Session;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
@@ -21,18 +24,24 @@ import java.util.concurrent.ExecutionException;
 public class GestionAbsense implements Initializable {
     private ArrayList<Apprenant> list_apprenants = new ArrayList<>();
     private ArrayList<Pane> components_apprenants = new ArrayList<>();
-    //
     private ArrayList<Pane> selected_apprenants = new ArrayList<>();
+    //
+    private ArrayList<Seance> list_seances = new ArrayList<>();
+    private ArrayList<Pane> components_seances = new ArrayList<>();
+    private Pane selected_seance;
     //
     @FXML
     HBox cont_apprenants;
     @FXML
     TextField srch_apprenant;
+    @FXML
+    HBox cont_seances;
 
     //
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         displayLearners();
+        displayClasses();
     }
 
     @FXML
@@ -112,5 +121,65 @@ public class GestionAbsense implements Initializable {
         return container;
     }
 
+    private void displayClasses() {
+        try {
+            list_seances.clear();
+            components_seances.clear();
+            cont_seances.getChildren().clear();
+            //
+            SeanceDao seanceDao = new SeanceDao();
+            list_seances = seanceDao.getAllByFormateur(Session.cin);
+            if (list_seances != null) {
+                if (list_seances.size() > 0) {
+                    for (Seance seance : list_seances) {
+                        cont_seances.getChildren().add(make_seance(seance));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    private Pane make_seance(Seance seance) {
+        Pane container = new Pane();
+        container.getStyleClass().add("seance_card");
+        //
+        //
+        VBox cont_data = new VBox();
+        cont_data.getStyleClass().add("inner_cont");
+        //
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm yyyy/mm/dd");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
+        Label dateS = new Label(sdf.format(seance.getDateSeance().getTime()));
+        dateS.getStyleClass().add("dateS");
+        Label groupe = new Label(String.format("Groupe: %s", seance.getGroupe()));
+        Label date_h_f = new Label(String.format("%s -> %s", sdf2.format(seance.getHeureDebut().getTime()), sdf2.format(seance.getHeureFin().getTime())));
+        //
+        cont_data.getChildren().addAll(dateS, groupe, date_h_f);
+        //
+        //
+        Circle indicator = new Circle();
+        indicator.setRadius(10);
+        indicator.getStyleClass().add("indicator");
+        //
+        container.getChildren().addAll(cont_data, indicator);
+        //
+        container.setOnMouseClicked(e -> {
+            if (container.getStyleClass().contains("seance_card_active")) {
+                selected_seance = null;
+                container.getStyleClass().remove("seance_card_active");
+            } else {
+                for (Pane p_s : components_seances) {
+                    p_s.getStyleClass().remove("seance_card_active");
+                }
+                container.getStyleClass().add("seance_card_active");
+                selected_seance = container;
+            }
+        });
+        //
+        //container.managedProperty().bind(container.visibleProperty());
+        components_seances.add(container);
+        return container;
+    }
 }

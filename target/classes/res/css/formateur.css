@@ -159,6 +159,8 @@
     -fx-stroke: #E2E8F0;
     -fx-fill: white;
     -fx-stroke-width: 2;
+    -fx-translate-x: 174;
+    -fx-translate-y: 16;
 }
 #formateur_root #root_gestion_absense #list_seance .seance_card .inner_cont {
     -fx-background-color: white;
@@ -176,7 +178,7 @@
     -fx-text-fill: #64748B;
     -fx-font-size: 12;
 }
-#formateur_root #root_gestion_absense #list_seance .seance_card .inner_cont .matricule {
+#formateur_root #root_gestion_absense #list_seance .seance_card .inner_cont .dateS {
     -fx-text-fill: #4f5b6d;
     -fx-font-size: 14;
     -fx-font-weight: bold;

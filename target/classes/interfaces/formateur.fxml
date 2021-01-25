@@ -24,7 +24,7 @@
                         <Circle fx:id="imgAvatar" fill="DODGERBLUE" layoutX="40.0" layoutY="30.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
                         <HBox alignment="CENTER" layoutX="9.0" prefHeight="60.0" prefWidth="60.0">
                             <children>
-                                <Text fx:id="nomUser" strokeType="OUTSIDE" strokeWidth="0.0" text="AH" textAlignment="CENTER">
+                                <Text fx:id="nomUser" strokeType="OUTSIDE" strokeWidth="0.0" text="TP" textAlignment="CENTER" wrappingWidth="40.603515625">
                                     <font>
                                         <Font name="System Bold" size="18.0" />
                                     </font>
