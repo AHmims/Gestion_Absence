@@ -35,7 +35,7 @@ public class AbsenceDao implements Dao<Absence> {
                 throw new Exception("Connection error");
             //
             PreparedStatement statement = con.prepareStatement("INSERT INTO `Absence`(`heureAbsence`, `cinApprenant`, `dateSeance`, `justifie`, `retard`, `absence`) VALUES (?, ?, ?, ?, ?, ?)");
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH-mm-ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             statement.setString(1, sdf.format(absence.getHeureAbsence().getTime()));
             statement.setString(2, absence.getCinApprenant());
             statement.setString(3, sdf.format(absence.getDateSeance().getTime()));

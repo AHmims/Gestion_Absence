@@ -87,7 +87,7 @@ public class GestionAbsense implements Initializable {
                 throw new Exception("1");
             if (selected_seance == null)
                 throw new Exception("2");
-            if (abs_duration.getText().equals(""))
+            if (!abs_type.getSelectedToggle().equals(abs_opt1) && abs_duration.getText().equals(""))
                 throw new Exception("3");
             //
             for (Pane comp_apprenant : selected_apprenants) {
@@ -203,7 +203,7 @@ public class GestionAbsense implements Initializable {
         VBox cont_data = new VBox();
         cont_data.getStyleClass().add("inner_cont");
         //
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/mm/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
         SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
         Label dateS = new Label(sdf.format(seance.getDateSeance().getTime()));
         dateS.getStyleClass().add("dateS");

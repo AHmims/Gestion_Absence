@@ -38,7 +38,6 @@ public class SeanceDao implements Dao<Seance> {
             //
             ArrayList<Seance> list_seances = new ArrayList<>();
             while (res.next()) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH-mm-ss");
                 Calendar dateS = Calendar.getInstance();
                 Calendar hd = Calendar.getInstance();
                 Calendar hf = Calendar.getInstance();
@@ -63,7 +62,7 @@ public class SeanceDao implements Dao<Seance> {
                 throw new Exception("Connection error");
             //
             PreparedStatement statement = con.prepareStatement("INSERT INTO `Seance`(`dateSeance`, `matricule`, `groupe`, `heureDebut`, `heureFin`) VALUES (?, ?, ?, ?, ?)");
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH-mm-ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             statement.setString(1, sdf.format(seance.getDateSeance().getTime()));
             statement.setString(2, seance.getMatricule());
             statement.setString(3, seance.getGroupe());
