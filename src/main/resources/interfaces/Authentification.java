@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -61,6 +62,7 @@ public class Authentification {
                                 break;
                             default:
                                 System.out.println("Class unknown");
+                                new Alert(Alert.AlertType.ERROR, "Class inconnu").showAndWait();
                         }
                         //
                         if (!scene_name.equals("")) {
@@ -68,12 +70,15 @@ public class Authentification {
                         }
                     } else {
                         System.out.println("User not found");
+                        new Alert(Alert.AlertType.ERROR, "Le login ou le mot de passe est incorrect").showAndWait();
                     }
                 } else {
                     System.out.println("Inputs can't be empty");
+                    new Alert(Alert.AlertType.ERROR, "Les données ne peuvent pas être vides").showAndWait();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, "Erreur inconnue lors de l'authentification").showAndWait();
             }
         }).start();
     }
@@ -87,6 +92,7 @@ public class Authentification {
             Platform.runLater(() -> stage.setScene(scene));
         } catch (IOException e) {
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Erreur lors du chargement de la vue").showAndWait();
         }
     }
 }

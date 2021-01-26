@@ -32,7 +32,7 @@
                      <children>
                         <VBox prefWidth="100.0" spacing="5.0">
                            <children>
-                              <Label text="Adresse email" />
+                              <Label text="Identifiant" />
                               <TextField fx:id="input_email" />
                            </children>
                         </VBox>

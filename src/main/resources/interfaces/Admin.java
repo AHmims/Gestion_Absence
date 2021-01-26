@@ -3,6 +3,7 @@ package interfaces;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -43,6 +44,7 @@ public class Admin implements Initializable {
             admin_content.getChildren().setAll(content);
         } catch (IOException e) {
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Erreur lors du chargement de la vue").showAndWait();
         }
     }
 }
