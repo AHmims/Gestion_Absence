@@ -18,6 +18,12 @@ public class Administrateur extends Utilisateur {
     public Administrateur(String cin, String nom, String prenom) {
         super(cin, nom, prenom, 3);
     }
+    public Administrateur(String cin, String nom, String prenom, String matricule, Calendar dateEmbauche, String service) {
+        super(cin, nom, prenom, 3);
+        this.matricule = matricule;
+        this.dateEmbauche = dateEmbauche;
+        this.service = service;
+    }
     //
 
 

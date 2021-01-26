@@ -11,6 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        System.out.println(getClass().getResource("interfaces").getPath());
         Parent root = FXMLLoader.load(getClass().getResource("interfaces/authentification.fxml"));
         primaryStage.setTitle("Youcode absence");
         primaryStage.setScene(new Scene(root));

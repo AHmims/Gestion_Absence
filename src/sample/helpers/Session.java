@@ -14,4 +14,10 @@ public class Session {
         prenom = user.getPrenom();
         nivDroit = user.getNivDroit();
     }
+    public static void clearSession(){
+        cin = null;
+        nom = null;
+        prenom = null;
+        nivDroit = -1;
+    }
 }

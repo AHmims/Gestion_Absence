@@ -96,6 +96,8 @@
     -fx-stroke: #E2E8F0;
     -fx-fill: white;
     -fx-stroke-width: 2;
+    -fx-translate-x: 174;
+    -fx-translate-y: 16;
 }
 
 #formateur_root #root_gestion_absense #list_apprenant .apprenant_card .inner_cont {
@@ -157,6 +159,8 @@
     -fx-stroke: #E2E8F0;
     -fx-fill: white;
     -fx-stroke-width: 2;
+    -fx-translate-x: 174;
+    -fx-translate-y: 16;
 }
 #formateur_root #root_gestion_absense #list_seance .seance_card .inner_cont {
     -fx-background-color: white;
@@ -174,7 +178,7 @@
     -fx-text-fill: #64748B;
     -fx-font-size: 12;
 }
-#formateur_root #root_gestion_absense #list_seance .seance_card .inner_cont .matricule {
+#formateur_root #root_gestion_absense #list_seance .seance_card .inner_cont .dateS {
     -fx-text-fill: #4f5b6d;
     -fx-font-size: 14;
     -fx-font-weight: bold;
@@ -188,4 +192,21 @@
 #formateur_root #root_gestion_absense #list_seance .seance_card_active .inner_cont {
     -fx-background-color: #F9FEFD;
     -fx-border-color: #51B6AB;
+}
+#formateur_root #root_gestion_absense #btn_add{
+    -fx-text-fill: white;
+    -fx-background-color: #272643;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-cursor: hand;
+}
+#formateur_root #root_gestion_absense #abs_duration{
+    -fx-text-fill: #64748B;
+    -fx-border-color: #bec4cc;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-background-insets: none;
+    -fx-background-color: white;
 }

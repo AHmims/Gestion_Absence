@@ -48,7 +48,7 @@
                         <Insets bottom="10.0" />
                     </GridPane.margin>
                     <children>
-                        <Button mnemonicParsing="false">
+                        <Button fx:id="btn_out" mnemonicParsing="false" onAction="#logOut">
                             <styleClass>
                                 <String fx:value="navLink" />
                                 <String fx:value="navLink-exit" />

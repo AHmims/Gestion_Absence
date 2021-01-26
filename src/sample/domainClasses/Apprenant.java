@@ -24,6 +24,15 @@ public class Apprenant extends Utilisateur {
     public Apprenant(String cin, String nom, String prenom) {
         super(cin, nom, prenom, 0);
     }
+    public Apprenant(String cin, String nom, String prenom, String cne, String promotion, String nomTuteur, String prenomTuteur, int niveau, String groupe) {
+        super(cin, nom, prenom, 0);
+        this.cne = cne;
+        this.promotion = promotion;
+        this.nomTuteur = nomTuteur;
+        this.prenomTuteur = prenomTuteur;
+        this.niveau = niveau;
+        this.groupe = groupe;
+    }
     //
 
     public String getCne() {

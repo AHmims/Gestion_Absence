@@ -51,7 +51,7 @@
                   <Insets bottom="10.0" />
                </GridPane.margin>
                <children>
-                  <Button mnemonicParsing="false">
+                  <Button mnemonicParsing="false" onAction="#logOut">
                      <styleClass>
                         <String fx:value="navLink" />
                         <String fx:value="navLink-exit" />
