@@ -107,12 +107,22 @@ public class GestionAbsense implements Initializable {
                 //
                 AbsenceDao absenceDao = new AbsenceDao();
                 boolean insert_res = absenceDao.save(new Absence(h_abs, apprenant.getCin(), seance.getDateSeance(), false, retard, absence));
-                if (!insert_res)
+                if (!insert_res) {
                     System.out.println("Not saved");
-                else System.out.println("Saved");
+                    new Alert(Alert.AlertType.ERROR, "Les données n'ont pas été sauvegardées").showAndWait();
+                } else {
+                    System.out.println("Saved");
+                    new Alert(Alert.AlertType.INFORMATION, "Les données ont été sauvegardées").showAndWait();
+                }
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            switch (e.getMessage()){
+                case "1":new Alert(Alert.AlertType.ERROR, "Veuillez sélectionner au moins 1 apprenant").showAndWait();break;
+                case "2":new Alert(Alert.AlertType.ERROR, "Merci de sélectionner une seance").showAndWait();break;
+                case "3":new Alert(Alert.AlertType.ERROR, "La durée ne peut pas être vide").showAndWait();break;
+                default:new Alert(Alert.AlertType.ERROR, "Erreur inconnue").showAndWait();
+            }
         }
     }
 
@@ -134,6 +144,7 @@ public class GestionAbsense implements Initializable {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Erreur inconnue").showAndWait();
         }
     }
 
@@ -192,6 +203,7 @@ public class GestionAbsense implements Initializable {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Erreur inconnue").showAndWait();
         }
     }
 

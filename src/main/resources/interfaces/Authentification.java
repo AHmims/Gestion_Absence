@@ -62,7 +62,7 @@ public class Authentification {
                                 break;
                             default:
                                 System.out.println("Class unknown");
-                                new Alert(Alert.AlertType.ERROR, "Class inconnu").showAndWait();
+                                leBonErreur("Class inconnu");
                         }
                         //
                         if (!scene_name.equals("")) {
@@ -70,15 +70,15 @@ public class Authentification {
                         }
                     } else {
                         System.out.println("User not found");
-                        new Alert(Alert.AlertType.ERROR, "Le login ou le mot de passe est incorrect").showAndWait();
+                        leBonErreur("Le login ou le mot de passe est incorrect");
                     }
                 } else {
                     System.out.println("Inputs can't be empty");
-                    new Alert(Alert.AlertType.ERROR, "Les données ne peuvent pas être vides").showAndWait();
+                    leBonErreur("Les données ne peuvent pas être vides");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                new Alert(Alert.AlertType.ERROR, "Erreur inconnue lors de l'authentification").showAndWait();
+                leBonErreur("Erreur inconnue lors de l'authentification");
             }
         }).start();
     }
@@ -92,7 +92,12 @@ public class Authentification {
             Platform.runLater(() -> stage.setScene(scene));
         } catch (IOException e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Erreur lors du chargement de la vue").showAndWait();
+            leBonErreur("Erreur lors du chargement de la vue");
         }
+    }
+
+    //
+    private void leBonErreur(String err_msg) {
+        Platform.runLater(() -> new Alert(Alert.AlertType.ERROR, err_msg).showAndWait());
     }
 }
