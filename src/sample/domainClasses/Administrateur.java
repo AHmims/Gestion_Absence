@@ -14,6 +14,9 @@ public class Administrateur extends Utilisateur {
         this.dateEmbauche = dateEmbauche;
         this.service = service;
     }
+    public Administrateur(String cin, String nom, String prenom, Calendar dateNaissance, String user, String password) {
+        super(cin, nom, prenom, dateNaissance, user, password, 3);
+    }
 
     public Administrateur(String cin, String nom, String prenom) {
         super(cin, nom, prenom, 3);

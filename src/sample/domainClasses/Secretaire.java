@@ -8,6 +8,10 @@ public class Secretaire extends Administrateur {
         super(cin, nom, prenom, dateNaissance, user, password, matricule, dateEmbauche, service);
         super.setNivDroit(1);
     }
+    public Secretaire(String cin, String nom, String prenom, Calendar dateNaissance, String user, String password) {
+        super(cin, nom, prenom, dateNaissance, user, password);
+        super.setNivDroit(1);
+    }
 
     public Secretaire(String cin, String nom, String prenom) {
         super(cin, nom, prenom);
