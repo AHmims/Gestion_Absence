@@ -30,6 +30,7 @@ public class Utilisateurs implements Initializable {
     //
     private void displayLearners() {
         try {
+            skills_container.getChildren().clear();
             UtilisateurDao utilisateurDao = new UtilisateurDao();
             ArrayList<Utilisateur> list_utilisateurs = utilisateurDao.getAll();
             if (list_utilisateurs != null) {
@@ -58,6 +59,8 @@ public class Utilisateurs implements Initializable {
         Label nom = new Label(String.format("%s %s", utilisateur.getNom(), utilisateur.getPrenom()));
         nom.getStyleClass().add("card_name");
         Label role = new Label();
+        role.setMinWidth(Double.NEGATIVE_INFINITY);
+        role.setMinHeight(Double.NEGATIVE_INFINITY);
         role.getStyleClass().add("card_role");
         switch (utilisateur.getNivDroit()) {
             case 0:
