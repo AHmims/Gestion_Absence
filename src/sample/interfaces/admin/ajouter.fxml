@@ -103,6 +103,12 @@
                         </HBox>
                      </children>
                   </VBox>
+                  <HBox fx:id="idHboxForm" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Groupe :" />
+                        <ChoiceBox fx:id="idCmbGroupeFor" prefWidth="150.0" />
+                     </children>
+                  </HBox>
                   <VBox fx:id="idVboxApprenant" layoutX="10.0" layoutY="235.0" spacing="20.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="15.0">
@@ -123,6 +129,7 @@
                                     <TextField fx:id="idPromotion" />
                                  </children>
                               </HBox>
+                              <ChoiceBox fx:id="idCmbPromotion" prefWidth="150.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="55.0" prefWidth="200.0" spacing="15.0">
@@ -146,15 +153,15 @@
                               <HBox alignment="CENTER_LEFT" spacing="10.0">
                                  <children>
                                     <Label text="Niveau :" />
-                                    <TextField fx:id="idNiveau" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="10.0">
                                  <children>
+                                    <ChoiceBox fx:id="idCmbNiveau" prefWidth="150.0" />
                                     <Label text="Groupe :" />
-                                    <TextField fx:id="idGroupe" />
                                  </children>
                               </HBox>
+                              <ChoiceBox fx:id="idCmbGroupe" prefWidth="150.0" />
                            </children>
                         </HBox>
                      </children>
